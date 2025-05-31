@@ -1,0 +1,45 @@
+def main():
+    todo_list = []
+ while True:
+        print("\nمنو:")
+        print("1. نمایش لیست")
+        print("2. افزودن کار")
+        print("3. حذف کار")
+        print("4. خروج")
+        choice = input("یک گزینه را انتخاب کنید (1-4): ")
+  if choice == "1":
+            if not todo_list:
+                print("لیست خالی است.")
+            else:
+                print("لیست کارها:")
+                for i, task in enumerate(todo_list, start=1):
+                    print("{i}. {task}")
+  elif choice == "2":
+            task = input("کار جدید را وارد کنید: ")
+            todo_list.append(task)
+            print("'{task}' به لیست اضافه شد.")
+  elif choice == "3":
+            if not todo_list:
+                print("لیست خالی است. ابتدا کاری اضافه کنید!")
+            else:
+                print("لیست کارها:")
+                for i, task in enumerate(todo_list, start=1):
+                    print("{i}. {task}")
+                try:
+                    index = int(input("شماره کاری که می‌خواهید حذف کنید را وارد کنید: "))
+                    if 1 <= index <= len(todo_list):
+                        removed = todo_list.pop(index - 1)
+                        print("'{removed}' از لیست حذف شد.")
+                    else:
+                        print("شماره وارد شده معتبر نیست.")
+                except ValueError:
+                    print("لطفاً یک عدد معتبر وارد کنید.")
+  elif choice == "4":
+            print("خروج از برنامه.")
+            break
+ else:
+            print("گزینه نامعتبر! لطفاً یکی از گزینه‌های (1-4) را انتخاب کنید.")
+   main()
+
+
+
